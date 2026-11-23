@@ -56,7 +56,6 @@ class SalaryAssignmentsService {
       const saved = await this.salaryRepository.save(created);
       return formatSalaryRecord(employee, saved);
     } catch (error) {
-      // Database UNIQUE constraint also protects concurrent requests.
       const code = error?.driverError?.code ?? error?.code;
       if (code === '23505') {
         throw new ConflictException('This employee already has a salary assignment.');

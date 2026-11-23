@@ -73,7 +73,6 @@ class SalaryComponentsService {
     }
   }
 
-  // Component catalog: reusable names shared by all employees.
   async createComponent(payload) {
     const { name } = validateComponentNameInput(payload);
     await this.assertUniqueActiveName(name);
@@ -109,7 +108,6 @@ class SalaryComponentsService {
     }
   }
 
-  // A global delete hides the component and soft-deletes its active assignments.
   async deleteComponent(componentIdText) {
     const componentId = parseId(componentIdText, 'salary_component_id');
     return this.dataSource.transaction(async (manager) => {
@@ -138,7 +136,6 @@ class SalaryComponentsService {
     });
   }
 
-  // Employee-specific assignments: each employee can use a component once while active.
   async listEmployeeComponents(employeeIdText) {
     const employeeId = parseId(employeeIdText, 'employee_id');
     await this.assertEmployee(employeeId);

@@ -1,6 +1,5 @@
 const { EntitySchema } = require('typeorm');
 
-// Maps to the existing PostgreSQL table. synchronize is disabled in AppModule.
 const SalaryAssignment = new EntitySchema({
   name: 'SalaryAssignment',
   tableName: 'salary_assignments',

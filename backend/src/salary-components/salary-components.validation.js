@@ -50,7 +50,6 @@ function parseAmount(value) {
     throw new BadRequestException('amount must be finite.');
   }
   const text = String(value).trim();
-  // NUMERIC(12,2) stores up to 10 integer digits and 2 decimal places.
   if (!/^(0|[1-9]\d{0,9})(\.\d{1,2})?$/.test(text)) {
     throw new BadRequestException(
       'amount must be from 0 to 9999999999.99 with at most two decimal places.',

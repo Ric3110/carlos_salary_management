@@ -1,6 +1,5 @@
 const { EntitySchema } = require('typeorm');
 
-// One record represents one assignment of a reusable component to an employee.
 const EmployeeSalaryComponent = new EntitySchema({
   name: 'EmployeeSalaryComponent',
   tableName: 'employee_salary_components',
